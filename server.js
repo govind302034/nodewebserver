@@ -5,6 +5,7 @@ const hbs=require('hbs');
 
 const app=express();
 
+const port = process.env.PORT || 3000;
 app.set('view engine','hbs');
 
 hbs.registerPartials(__dirname + '/views/partial')
@@ -23,9 +24,9 @@ app.use((req,res,next)=>{
 	next();
 })
 
-app.use((req,res,next)=>{
+/*app.use((req,res,next)=>{
 	res.render('maintain.hbs')
-})
+})*/
 
 app.use(express.static(__dirname + '/public'));
 app.get('/about',(req,res)=>{
@@ -44,6 +45,6 @@ app.get('/',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
-	console.log('port is running');
+app.listen(port,()=>{
+	console.log(`port is running in ${port}`);
 });
