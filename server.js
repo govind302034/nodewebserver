@@ -43,6 +43,13 @@ app.get('/',(req,res)=>{
 	});
 });
 
+app.get('/project',(req,res)=>{
+	res.render('project.hbs',{
+		title:'project page',
+		currentyear:new Date().toString()
+	})
+})
+
 
 
 app.listen(port,()=>{
